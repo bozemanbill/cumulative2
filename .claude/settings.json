@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -Command \"Get-ChildItem -Path . -Filter '*.Rmd.tmp.*' -File -ErrorAction SilentlyContinue | Remove-Item -Force -ErrorAction SilentlyContinue\"",
+            "timeout": 15,
+            "statusMessage": "Cleaning stray .Rmd.tmp files"
+          }
+        ]
+      }
+    ]
+  }
+}
