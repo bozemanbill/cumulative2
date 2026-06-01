@@ -45,8 +45,8 @@ vignettes/*.pdf
 # renv/local/
 # renv/cellar/
 
-# Knitted output (uncomment to keep rendered HTML out of version control)
-# *.html
+# Knitted output (rendered HTML is a build artifact; regenerate on knit)
+*.html
 
 # OS / editor cruft
 .DS_Store
