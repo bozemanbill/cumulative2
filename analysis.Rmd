@@ -1,0 +1,66 @@
+---
+title: "Analysis"
+author: "naiadllc"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    theme: cosmo
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center",
+  fig.width = 8,
+  fig.height = 5,
+  dpi = 150
+)
+```
+
+# Overview
+
+Describe the purpose of this analysis here: the question you're answering,
+the data you're using, and the headline findings.
+
+# Setup
+
+```{r libraries}
+# Load packages here as you add them, e.g.:
+# library(tidyverse)
+```
+
+# Data
+
+```{r load-data}
+# Read your data here, e.g.:
+# data <- readr::read_csv("data/raw/example.csv")
+```
+
+# Exploration
+
+```{r explore}
+# Summaries, plots, and sanity checks go here.
+```
+
+# Analysis
+
+```{r analysis}
+# Core analysis goes here.
+```
+
+# Results
+
+Summarize the results and what they mean.
+
+# Session info
+
+```{r session-info}
+sessionInfo()
+```
