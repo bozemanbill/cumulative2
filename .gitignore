@@ -19,6 +19,9 @@
 # RStudio files
 .Rproj.user/
 
+# Claude Code local (machine-specific permissions, not shared)
+.claude/settings.local.json
+
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
