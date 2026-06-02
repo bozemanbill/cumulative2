@@ -32,15 +32,37 @@ the data you're using, and the headline findings.
 # Setup
 
 ```{r libraries}
-# Load packages here as you add them, e.g.:
-# library(tidyverse)
+library(tidyverse)  # dplyr / ggplot2 / readr etc. — used throughout the analysis
+library(sf)         # "simple features": reads spatial data as a data frame + geometry
 ```
 
 # Data
 
+The wetlands live in an ESRI File Geodatabase (`.gdb`). A `.gdb` is really a
+*folder* that can hold many layers, so we point `sf` at the folder and name the
+specific layer we want.
+
 ```{r load-data}
-# Read your data here, e.g.:
-# data <- readr::read_csv("data/raw/example.csv")
+# Forward slashes work on Windows in R and avoid escaping every backslash.
+wetlands_gdb <- "D:/Dropbox/Job/Naiad/City of Bozeman/Sensitive Areas Map/GIS Data/Wetlands and WOTUS/Wetlands and WOTUS.gdb"
+
+# This .gdb has 38 layers, so we name the one we want explicitly.
+# st_read() returns an "sf" object: a normal data frame with an extra geometry column.
+# quiet = TRUE hides the import message so the knitted report stays tidy.
+wetlands <- st_read(wetlands_gdb, layer = "MT_NHP_wet_City", quiet = TRUE)
+
+# Sanity check: how many rows (features) and columns did we get?
+dim(wetlands)
+```
+
+The **attribute table** is just the data without the geometry column — the same
+table you'd see in GIS software. `st_drop_geometry()` strips the geometry so the
+first few rows print cleanly.
+
+```{r attribute-table}
+wetlands |>
+  st_drop_geometry() |>
+  head()
 ```
 
 # Exploration
